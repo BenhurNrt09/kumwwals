@@ -109,7 +109,7 @@ export default function Home() {
                       </span>
                       <h1 className="vs-hero__title--main vs-hero__anim1 manimated mb-3" style={{ animationDelay: '0.85s', fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: '1.15', color: '#ffffff', fontWeight: '900', textShadow: '2px 2px 8px rgba(0,0,0,0.3)' }}>
                         <span style={{ color: '#FFD700' }}>KUMWALS'A</span> HOŞ GELDİNİZ
-                        <span style={{ display: 'block', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', marginTop: '15px' }}>KAPALIALANDAN OYUN</span>
+                        <span style={{ display: 'block', fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', marginTop: '15px' }}>KAPALI ALANDAN OYUN</span>
                       </h1>
                       <p className="vs-hero__desc vs-hero__anim1 manimated mb-4" style={{ animationDelay: '1.1s', fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)', color: 'rgba(255,255,255,0.95)', lineHeight: '1.6', fontWeight: '500' }}>
                         Tutkumuz Çocukluk ve Biz Anaokulundayız
