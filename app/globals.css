@@ -1,0 +1,549 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Template overrides */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --vs-theme-color1: #7B2CBF;
+  --vs-theme-color2: #9D4EDD;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Baloo 2', cursive;
+}
+
+/* Menu Hover Color to Purple */
+.main-menu ul li a:hover {
+  color: #7B2CBF !important;
+}
+
+.main-menu>ul>li>a::after {
+  background-color: #7B2CBF !important;
+}
+
+/* Activity Cards - Equal Size, Centered, No Hover */
+.kumwals-activity-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 30px 20px !important;
+  border-radius: 30px !important;
+  transition: none !important;
+}
+
+.kumwals-activity-card:hover {
+  transform: none !important;
+  background-color: inherit !important;
+}
+
+.kumwals-activity-card .vs-feature__icon {
+  margin: 0 !important;
+}
+
+.kumwals-activity-card .vs-feature__title {
+  color: #333 !important;
+  font-weight: 800 !important;
+}
+
+.kumwals-activity-card .link-btn {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+.kumwals-activity-card .link-btn:hover {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Activity Arrow Hover Effect */
+.activity-arrow {
+  transition: transform 0.3s ease;
+}
+
+a:hover .activity-arrow {
+  transform: scale(1.3);
+}
+
+/* Hero Section Height Override */
+.vs-hero--style8 {
+  min-height: auto !important;
+}
+
+.vs-hero--style8 .vs-hero__content {
+  padding: 0 !important;
+}
+
+/* Workshop Card Equalization */
+.vs-room {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.vs-room .p-4 {
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.vs-room .mt-auto {
+  margin-top: auto !important;
+}
+
+/* Mobile Image Padding Fix */
+@media (max-width: 767px) {
+  .vs-hero__image {
+    margin-bottom: 30px !important;
+  }
+
+  .vs-hero__content {
+    text-align: center !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* Colorful Boxes Styles */
+.kumwals-box-red {
+  background-color: #FEE2E2 !important;
+  border: 2px solid #FCA5A5 !important;
+}
+
+.kumwals-box-yellow {
+  background-color: #FEF3C7 !important;
+  border: 2px solid #FCD34D !important;
+}
+
+.kumwals-box-green {
+  background-color: #D1FAE5 !important;
+  border: 2px solid #6EE7B7 !important;
+}
+
+.kumwals-box-blue {
+  background-color: #DBEAFE !important;
+  border: 2px solid #93C5FD !important;
+}
+
+/* Magnific Popup Customization */
+/* Background - consistent dark overlay */
+.mfp-bg {
+  background: rgba(0, 0, 0, 0.85) !important;
+  opacity: 1 !important;
+}
+
+.mfp-ready .mfp-bg {
+  opacity: 1 !important;
+}
+
+/* Hide zoom controls and counters */
+.mfp-counter,
+.mfp-preloader,
+.mfp-title,
+.mfp-bottom-bar {
+  display: none !important;
+}
+
+/* Hide default close button with text */
+.mfp-close-btn-in .mfp-close {
+  display: none !important;
+}
+
+/* Custom Close Button - Always visible, top right */
+button.mfp-close {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  width: 50px !important;
+  height: 50px !important;
+  background: #7B2CBF !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  font-size: 40px !important;
+  line-height: 50px !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  z-index: 10001 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0 !important;
+}
+
+button.mfp-close:hover {
+  background: #9D4EDD !important;
+  transform: scale(1.1) !important;
+}
+
+/* Container */
+.mfp-container {
+  padding: 50px !important;
+}
+
+/* Image container - centered, no zoom cursor */
+.mfp-img {
+  cursor: default !important;
+  max-width: 90% !important;
+  max-height: 90vh !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  margin: auto !important;
+}
+
+.mfp-figure {
+  cursor: default !important;
+}
+
+.mfp-figure:after {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Content wrapper */
+.mfp-content {
+  cursor: default !important;
+}
+
+.mfp-image-holder .mfp-content {
+  max-width: 100% !important;
+}
+
+/* Fix vs-balls overflow causing white line */
+.vs-balls,
+.vs-balls--screen {
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+.vs-balls svg,
+.vs-balls--screen svg {
+  max-width: 100% !important;
+}
+
+/* Prevent horizontal overflow */
+body,
+html {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* Breadcrumb Background Overlay */
+.vs-breadcrumb-wrapper {
+  position: relative;
+}
+
+.vs-breadcrumb-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.vs-breadcrumb-wrapper .breadcumb-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Homepage Enhancement Styles */
+/* Feature Card Hover Effects */
+.vs-feature {
+  transition: all 0.3s ease !important;
+}
+
+.vs-feature:hover {
+  transform: translateY(-10px) scale(1.02) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+.vs-feature:hover .vs-feature__icon {
+  transform: rotate(5deg) scale(1.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Stat Item Hover Effects */
+.stat-item {
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px) scale(1.05) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Feature Box Hover Effects */
+.feature-box {
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Button Hover Effects */
+.vs-btn {
+  transition: all 0.3s ease !important;
+}
+
+.vs-btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Floating Animation for Decorative Elements */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotateFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+/* Pulse Animation for Stars */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Wave Decorations (vs-balls) Mobile Responsiveness */
+.vs-balls,
+.vs-balls--screen {
+  pointer-events: none;
+  width: 100% !important;
+}
+
+.vs-balls svg,
+.vs-balls--screen svg {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Mobile Responsive Waves */
+@media (max-width: 767px) {
+
+  .vs-balls,
+  .vs-balls--screen {
+    height: 40px !important;
+  }
+
+  .vs-balls svg,
+  .vs-balls--screen svg {
+    height: 40px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .vs-balls,
+  .vs-balls--screen {
+    height: 60px !important;
+  }
+
+  .vs-balls svg,
+  .vs-balls--screen svg {
+    height: 60px !important;
+  }
+}
+
+@media (min-width: 992px) {
+
+  .vs-balls,
+  .vs-balls--screen {
+    height: 80px !important;
+  }
+
+  .vs-balls svg,
+  .vs-balls--screen svg {
+    height: 80px !important;
+  }
+}
+
+/* Hero Section Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Height Optimization */
+.vs-header__top {
+  padding: 8px 0 !important;
+  min-height: auto !important;
+}
+
+.vs-header__info {
+  font-size: 14px !important;
+}
+
+.sticky-wrapper .sticky-active {
+  padding: 10px 0 !important;
+}
+
+.vs-header__logo img {
+  max-height: 50px !important;
+}
+
+/* Wave Decoration Enhancement - More Visible */
+.vs-balls--screen {
+  opacity: 1 !important;
+  display: block !important;
+  height: 60px !important;
+  margin-bottom: -2px !important;
+}
+
+.vs-balls--screen svg {
+  height: 60px !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* Mobile Responsive Header */
+@media (max-width: 991px) {
+  .vs-header__top {
+    padding: 5px 0 !important;
+  }
+
+  .sticky-wrapper .sticky-active {
+    padding: 8px 0 !important;
+  }
+
+  .vs-header__logo img {
+    max-height: 40px !important;
+  }
+
+  .vs-balls--screen {
+    height: 40px !important;
+  }
+
+  .vs-balls--screen svg {
+    height: 40px !important;
+  }
+
+  /* Wave decoration below header on mobile */
+  header+div>svg {
+    height: 40px !important;
+  }
+
+  header+div {
+    height: 40px !important;
+  }
+}
+
+/* Hero Section Mobile Optimization */
+@media (max-width: 767px) {
+  .vs-hero__img-shape {
+    padding: 0 0 20px 0 !important;
+    margin-top: -40px !important;
+  }
+
+  /* Circular frame on mobile - smaller but same style */
+  .vs-hero__img-shape>div {
+    max-width: 320px !important;
+    width: 320px !important;
+    height: 320px !important;
+  }
+
+  .swiper-slide {
+    padding: 30px 0 60px 0 !important;
+  }
+
+  .vs-hero__content {
+    padding: 10px 10px 20px 10px !important;
+    text-align: center !important;
+  }
+
+  /* Hide side decorations on very small screens */
+  @media (max-width: 576px) {
+    .container>div[style*="position: absolute"] {
+      display: none !important;
+    }
+  }
+}

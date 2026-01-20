@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+# Prisma için gerekli environment variables
+[build.environment]
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Next.js plugin kullanımı
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
