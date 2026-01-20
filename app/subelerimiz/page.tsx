@@ -8,26 +8,31 @@ export default function Branches() {
         {
             name: "İZMİR PARK AVM",
             address: "Güneşli Mahallesi Eşrefpaşa Caddesi No:1B07 Konak / İzmir ",
+            phone: "0555 555 55 55",
             image: "/assets/img/home-8/gallery-img1-h8.jpg"
         },
         {
             name: "PARK BORNOVA AVM ",
             address: "Doğanlar Mahallesi Ankara Caddesi No:192 Bornova / İzmir ",
+            phone: "0555 555 55 55",
             image: "/assets/img/home-8/gallery-img2-h8.jpg"
         },
         {
             name: "VAN MALL AVM",
             address: "Şerefiye Mahallesi Cumhuriyet Caddesi No:45 İpekyolu / Van ",
+            phone: "0555 555 55 55",
             image: "/assets/img/home-8/gallery-img3-h8.jpg"
         },
         {
             name: "PARK YİRMİÜÇ AVM",
             address: "Cumhuriyet Mahallesi Malatya Caddesi No:48 Elazığ / Merkez ",
+            phone: "0555 555 55 55",
             image: "/assets/img/home-8/gallery-img4-h8.jpg"
         },
         {
             name: "LOVELET AVM",
             address: "Toptepe Mahallesi Hacı Mansur Sokak  No: 3D 34 Canik/ SAMSUN",
+            phone: "0555 555 55 55",
             image: "/assets/img/home-8/gallery-img5-h8.jpg"
         }
     ];
@@ -66,7 +71,14 @@ export default function Branches() {
                                                     </div>
                                                     <div className="d-flex align-items-center mb-2">
                                                         <i className="fas fa-phone-alt me-2" style={{ color: '#7B2CBF' }}></i>
-                                                        <a href={`tel:${sube.phone.replace(/\s/g, '')}`} className="text-muted small text-decoration-none">{sube.phone}</a>
+                                                        {sube?.phone ? (
+                                                            <a
+                                                                href={`tel:${sube.phone.replace(/\s/g, "")}`}
+                                                                className="text-muted small text-decoration-none"
+                                                            >
+                                                                {sube.phone}
+                                                            </a>
+                                                        ) : null}
                                                     </div>
                                                 </div>
                                                 <div className="mt-auto">
