@@ -42,7 +42,7 @@ const Navbar = () => {
                                 <div className="col">
                                     <div className="vs-header__logo">
                                         <a href="/">
-                                            <img src="/assets/img/kumlogo.jpeg" alt="Kumwals" className="logo" width={180} />
+                                            <img src="/assets/img/kumlogo.jpeg" alt="Kumwals" className="logo" width={220} />
                                         </a>
                                     </div>
                                 </div>

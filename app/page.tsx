@@ -8,9 +8,9 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section Style 8 - Exact Template Match */}
-      <section className="vs-hero vs-hero--style8 z-index-common parallax-wrap">
+      <section className="vs-hero vs-hero--style8 z-index-common parallax-wrap" style={{ position: 'relative' }}>
         {/* Shape Banner Decoration */}
-        <div className="vs-hero__shape-banner">
+        <div className="vs-hero__shape-banner" style={{ pointerEvents: 'none', zIndex: -1 }}>
           <img src="/assets/img/home-6/banner-shape.svg" alt="shape" />
         </div>
 
@@ -19,7 +19,7 @@ export default function Home() {
         {/* Swiper Container */}
         <div className="swiper heroSwiperh5">
           <div className="swiper-wrapper">
-            <div className="swiper-slide" style={{ padding: '80px 0' }}>
+            <div className="swiper-slide" style={{ padding: '100px 0 120px 0' }}>
               {/* Purple Background */}
               <div className="vs-hero__bg" style={{ backgroundColor: '#7B2CBF', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}></div>
 
@@ -56,7 +56,7 @@ export default function Home() {
                 <div className="row justify-content-center align-items-center">
                   {/* Left Side - Circular Framed Flower with Slider */}
                   <div className="col-xl-4 col-lg-4 col-md-5">
-                    <div className="vs-hero__img-shape position-relative" style={{ textAlign: 'center', padding: '10px 0' }}>
+                    <div className="vs-hero__img-shape position-relative" style={{ textAlign: 'center', padding: '0' }}>
                       {/* Circular Border Frame */}
                       <div style={{
                         position: 'relative',
@@ -125,6 +125,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Bottom Wave Decoration */}
+        <div style={{ position: 'absolute', bottom: '-2px', left: 0, width: '100%', pointerEvents: 'none', zIndex: 10 }}>
+          <img src="/assets/img/home-6/banner-shape.svg" alt="wave" style={{ width: '100%', display: 'block' }} />
         </div>
       </section>
 
