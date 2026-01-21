@@ -12,6 +12,20 @@ datasource db {
 
 // Example Models for Kumwals
 
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String   // Hashed password
+  name      String?
+  email     String?  @unique
+  role      String   @default("admin")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("users")
+}
+
 model Contact {
   id        String   @id @default(cuid())
   name      String
@@ -30,6 +44,8 @@ model Branch {
   phone       String
   email       String?
   city        String
+  imageUrl    String?
+  order       Int      @default(0)
   isActive    Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
