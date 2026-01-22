@@ -23,7 +23,7 @@ export async function GET() {
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { name, address, phone, email, city, imageUrl } = body;
+        const { name, address, phone, email, city, imageUrl, logoUrl } = body;
 
         if (!name || !address || !phone || !city) {
             return NextResponse.json(
@@ -46,6 +46,7 @@ export async function POST(request: Request) {
                 email,
                 city,
                 imageUrl,
+                logoUrl,
                 order: newOrder
             }
         });

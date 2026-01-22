@@ -3,7 +3,7 @@
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect } from 'react';
-import { LayoutDashboard, Building2, LogOut, Menu, Image, MessageSquare, User } from 'lucide-react';
+import { LayoutDashboard, Building2, LogOut, Menu, Image, MessageSquare, User, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
@@ -42,6 +42,7 @@ export default function AdminLayout({
     const navigation = [
         { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
         { name: 'Şubeler', href: '/admin/subeler', icon: Building2 },
+        { name: 'Finans', href: '/admin/finans', icon: DollarSign },
         { name: 'Galeri', href: '/admin/galeri', icon: Image },
         { name: 'İletişim', href: '/admin/iletisim', icon: MessageSquare },
         { name: 'Kullanıcılar', href: '/admin/users', icon: User },

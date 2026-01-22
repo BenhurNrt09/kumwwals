@@ -27,6 +27,8 @@ export default function BiletAl() {
     const [selectedBranch, setSelectedBranch] = useState<Branch | null>(null);
     const [formData, setFormData] = useState({
         fullName: '',
+        email: '',
+        phone: '',
         numPeople: 1,
         cardNumber: '',
         expiryDate: '',
@@ -119,6 +121,9 @@ export default function BiletAl() {
                                 alt={branch.name}
                                 className="w-100 h-100"
                                 style={{ objectFit: 'cover' }}
+                                onError={(e) => {
+                                    (e.target as HTMLImageElement).src = '/assets/img/kumlogo.jpeg';
+                                }}
                             />
                         </div>
                         <h3 className="h5 mb-3 fw-bold" style={{ color: selectedBranch?.id === branch.id ? '#7B2CBF' : '#333' }}>{branch.name}</h3>
@@ -163,6 +168,37 @@ export default function BiletAl() {
                                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                                 style={{ borderRadius: '0 15px 15px 0' }}
                             />
+                        </div>
+                    </div>
+
+                    <div className="row mb-4">
+                        <div className="col-md-6 mb-3 mb-md-0">
+                            <label className="form-label fw-bold">E-posta</label>
+                            <div className="input-group">
+                                <span className="input-group-text bg-light border-0"><i className="fas fa-envelope text-muted"></i></span>
+                                <input
+                                    type="email"
+                                    className="form-control bg-light border-0 py-3"
+                                    placeholder="ornek@email.com"
+                                    value={formData.email}
+                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                    style={{ borderRadius: '0 15px 15px 0' }}
+                                />
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <label className="form-label fw-bold">Telefon</label>
+                            <div className="input-group">
+                                <span className="input-group-text bg-light border-0"><Phone size={18} /></span>
+                                <input
+                                    type="tel"
+                                    className="form-control bg-light border-0 py-3"
+                                    placeholder="05XX XXX XX XX"
+                                    value={formData.phone}
+                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                    style={{ borderRadius: '0 15px 15px 0' }}
+                                />
+                            </div>
                         </div>
                     </div>
 
@@ -386,9 +422,55 @@ export default function BiletAl() {
                                 <button onClick={handlePrev} className="vs-btn style2 w-100" style={{ background: '#eee', color: '#333' }}>
                                     GERİ
                                 </button>
-                                <button className="vs-btn w-100" onClick={() => alert('Ödeme sistemi PayTR yakında bağlanacaktır.')}>
+                                <button
+                                    className="vs-btn w-100"
+                                    onClick={async () => {
+                                        if (!selectedBranch) return;
+
+                                        try {
+                                            setLoading(true);
+                                            const res = await fetch('/api/tickets', {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Content-Type': 'application/json'
+                                                },
+                                                body: JSON.stringify({
+                                                    fullName: formData.fullName,
+                                                    email: formData.email,
+                                                    phone: formData.phone,
+                                                    numPeople: formData.numPeople,
+                                                    branchId: selectedBranch.id,
+                                                    totalPrice: totalPrice
+                                                })
+                                            });
+
+                                            if (res.ok) {
+                                                alert('Bilet işleminiz başarıyla alındı! Ödeme adımı şu an aktif değildir, kaydınız oluşturuldu.');
+                                                // Reset form or redirect
+                                                setStep(1);
+                                                setFormData({
+                                                    fullName: '',
+                                                    email: '',
+                                                    phone: '',
+                                                    numPeople: 1,
+                                                    cardNumber: '',
+                                                    expiryDate: '',
+                                                    cvv: ''
+                                                });
+                                            } else {
+                                                alert('Bir hata oluştu. Lütfen tekrar deneyiniz.');
+                                            }
+                                        } catch (error) {
+                                            console.error('Error creating ticket:', error);
+                                            alert('Bir hata oluştu.');
+                                        } finally {
+                                            setLoading(false);
+                                        }
+                                    }}
+                                    disabled={loading}
+                                >
                                     <span className="vs-btn__border"></span>
-                                    ÖDEMEYİ TAMAMLA
+                                    {loading ? 'İŞLENİYOR...' : 'ÖDEMEYİ TAMAMLA'}
                                 </button>
                             </div>
                         </div>

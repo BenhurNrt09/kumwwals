@@ -1,3 +1,5 @@
+'use client';
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import TemplateScripts from '@/components/TemplateScripts';
@@ -154,60 +156,61 @@ export default function Home() {
           </div>
           <div className="row">
             {[
-              { title: "Kum Havuzu", icon: "fas fa-umbrella-beach", gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" },
-              { title: "Kaydıraklar", icon: "fas fa-person-walking-arrow-right", gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)" },
-              { title: "Top Havuzu", icon: "fas fa-baseball", gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)" },
-              { title: "Boyama Alanı", icon: "fas fa-palette", gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)" }
+              { title: "Kum Havuzu", icon: "fas fa-umbrella-beach", gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)", link: "/atolyeler" },
+              { title: "Kaydıraklar", icon: "fas fa-person-walking-arrow-right", gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)", link: "/atolyeler" },
+              { title: "Top Havuzu", icon: "fas fa-baseball", gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)", link: "/galeri" },
+              { title: "Boyama Alanı", icon: "fas fa-palette", gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)", link: "/galeri" }
             ].map((s, i) => (
               <div key={i} className="col-lg-3 col-md-6 mb-30 wow animate__fadeInUp" data-wow-delay={`${0.2 + i * 0.1}s`}>
-                <div className="vs-feature position-relative" style={{
-                  background: s.gradient,
-                  borderRadius: '25px',
-                  padding: '30px 20px',
-                  minHeight: '200px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                  transition: 'transform 0.3s ease',
-                  cursor: 'pointer'
-                }}>
-                  <div className="vs-feature__icon mb-3" style={{
-                    width: '80px',
-                    height: '80px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                    borderRadius: '50%',
+                <a href={s.link} style={{ textDecoration: 'none' }}>
+                  <div className="vs-feature position-relative" style={{
+                    background: s.gradient,
+                    borderRadius: '25px',
+                    padding: '30px 20px',
+                    minHeight: '200px',
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
+                    textAlign: 'center',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                    transition: 'transform 0.3s ease',
+                    cursor: 'pointer'
                   }}>
-                    <i className={s.icon} style={{ fontSize: '2rem', color: '#ffffff' }}></i>
+                    <div className="vs-feature__icon mb-3" style={{
+                      width: '80px',
+                      height: '80px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                      borderRadius: '50%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
+                    }}>
+                      <i className={s.icon} style={{ fontSize: '2rem', color: '#ffffff' }}></i>
+                    </div>
+                    <h3 className="vs-feature__title mb-3" style={{
+                      color: '#ffffff',
+                      fontWeight: '800',
+                      fontSize: '1.3rem',
+                      textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                    }}>
+                      {s.title}
+                    </h3>
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '40px',
+                      height: '40px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.25)',
+                      borderRadius: '50%',
+                      transition: 'all 0.3s ease'
+                    }}>
+                      <i className="fas fa-arrow-right" style={{ fontSize: '1rem', color: '#ffffff' }}></i>
+                    </div>
                   </div>
-                  <h3 className="vs-feature__title mb-3" style={{
-                    color: '#ffffff',
-                    fontWeight: '800',
-                    fontSize: '1.3rem',
-                    textShadow: '0 2px 4px rgba(0,0,0,0.1)'
-                  }}>
-                    {s.title}
-                  </h3>
-                  <a href="/atolyeler" style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '40px',
-                    height: '40px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.25)',
-                    borderRadius: '50%',
-                    textDecoration: 'none',
-                    transition: 'all 0.3s ease'
-                  }}>
-                    <i className="fas fa-arrow-right" style={{ fontSize: '1rem', color: '#ffffff' }}></i>
-                  </a>
-                </div>
+                </a>
               </div>
             ))}
           </div>
@@ -222,24 +225,27 @@ export default function Home() {
               <div className="vs-about-h8__image position-relative">
                 <img src="/assets/img/home-8/about-img1-h8.jpg" alt="Kumwals Hakkında" className="img-bottom border-radius-20 shadow-lg" style={{ borderRadius: '30px', width: '100%' }} />
                 {/* Decorative Badge */}
-                <div style={{
-                  position: 'absolute',
-                  top: '20px',
-                  right: '20px',
-                  backgroundColor: '#FFD700',
-                  borderRadius: '50%',
-                  width: '100px',
-                  height: '100px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 10px 30px rgba(255, 215, 0, 0.4)',
-                  transform: 'rotate(-15deg)'
-                }}>
-                  <span style={{ fontSize: '2rem', fontWeight: '900', color: '#333', lineHeight: '1' }}>5+</span>
-                  <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#333' }}>ŞUBE</span>
-                </div>
+                <a href="/subelerimiz" className="vs-about-badge">
+                  <div style={{
+                    position: 'absolute',
+                    top: '20px',
+                    right: '20px',
+                    backgroundColor: '#FFD700',
+                    borderRadius: '50%',
+                    width: '100px',
+                    height: '100px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 10px 30px rgba(255, 215, 0, 0.4)',
+                    transform: 'rotate(-15deg)',
+                    zIndex: 1
+                  }}>
+                    <span style={{ fontSize: '2rem', fontWeight: '900', color: '#333', lineHeight: '1' }}>5+</span>
+                    <span style={{ fontSize: '0.8rem', fontWeight: '700', color: '#333' }}>ŞUBE</span>
+                  </div>
+                </a>
               </div>
             </div>
             <div className="col-lg-6 mb-30 wow animate__fadeInRight" data-wow-delay="0.25s">
@@ -325,38 +331,53 @@ export default function Home() {
         <div className="container">
           <div className="row justify-content-between align-items-center text-center">
             {[
-              { number: "5+", label: "ŞUBE" },
-              { number: "2M+", label: "MUTLU ÇOCUK" },
-              { number: "%100", label: "YERLİ SERMAYE" },
-              { number: "15+", label: "ATÖLYE" }
+              { number: "5+", label: "ŞUBE", link: "/subelerimiz" },
+              { number: "2M+", label: "MUTLU ÇOCUK", link: "/galeri" },
+              { number: "%100", label: "YERLİ SERMAYE", link: "/galeri" },
+              { number: "15+", label: "ATÖLYE", link: "/atolyeler" }
             ].map((stat, idx) => (
               <div key={idx} className="col-lg-3 col-6 mb-30 wow animate__fadeInUp" data-wow-delay={`${0.2 + idx * 0.1}s`}>
-                <div className="stat-item" style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  borderRadius: '25px',
-                  padding: '30px 20px',
-                  backdropFilter: 'blur(10px)',
-                  transition: 'transform 0.3s ease'
-                }}>
-                  <h2 className="text-white mb-0" style={{
-                    fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                    fontWeight: 900,
-                    textShadow: '2px 2px 8px rgba(0,0,0,0.3)',
-                    background: 'linear-gradient(135deg, #FFD700, #FFA500)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    marginBottom: '10px'
-                  }}>
-                    {stat.number}
-                  </h2>
-                  <p className="text-white mb-0 fw-bold" style={{
-                    letterSpacing: '2px',
-                    fontSize: '1rem',
-                    textTransform: 'uppercase'
-                  }}>
-                    {stat.label}
-                  </p>
-                </div>
+                <a
+                  href={stat.link}
+                  style={{ textDecoration: 'none', display: 'block' }}
+                >
+                  <div className="stat-item" style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    borderRadius: '25px',
+                    padding: '30px 20px',
+                    backdropFilter: 'blur(10px)',
+                    transition: 'transform 0.3s ease, background-color 0.3s ease',
+                    cursor: 'pointer'
+                  }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                    }}
+                  >
+                    <h2 className="text-white mb-0" style={{
+                      fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                      fontWeight: 900,
+                      textShadow: '2px 2px 8px rgba(0,0,0,0.3)',
+                      background: 'linear-gradient(135deg, #FFD700, #FFA500)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      marginBottom: '10px'
+                    }}>
+                      {stat.number}
+                    </h2>
+                    <p className="text-white mb-0 fw-bold" style={{
+                      letterSpacing: '2px',
+                      fontSize: '1rem',
+                      textTransform: 'uppercase'
+                    }}>
+                      {stat.label}
+                    </p>
+                  </div>
+                </a>
               </div>
             ))}
           </div>

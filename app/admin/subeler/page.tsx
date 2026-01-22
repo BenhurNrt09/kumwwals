@@ -45,6 +45,7 @@ interface Branch {
     email?: string | null;
     city: string;
     imageUrl?: string | null;
+    logoUrl?: string | null;
     isActive: boolean;
     order: number;
     createdAt: string;
@@ -111,8 +112,9 @@ export default function AdminBranchesPage() {
     const [editingBranch, setEditingBranch] = useState<Branch | null>(null);
     const [uploading, setUploading] = useState(false);
 
-    // File input ref
-    const fileInputRef = useRef<HTMLInputElement>(null);
+    // File input refs
+    const imageInputRef = useRef<HTMLInputElement>(null);
+    const logoInputRef = useRef<HTMLInputElement>(null);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -121,6 +123,7 @@ export default function AdminBranchesPage() {
         email: '',
         city: '',
         imageUrl: '',
+        logoUrl: '',
     });
 
     const sensors = useSensors(
@@ -191,9 +194,12 @@ export default function AdminBranchesPage() {
     };
 
     // Dosya Yükleme
-    const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, field: 'imageUrl' | 'logoUrl') => {
         const file = e.target.files?.[0];
         if (!file) return;
+
+        // Reset file input value so same file can be selected again
+        e.target.value = '';
 
         setUploading(true);
         const formData = new FormData();
@@ -207,7 +213,7 @@ export default function AdminBranchesPage() {
             const data = await res.json();
 
             if (data.imageUrl) {
-                setFormData(prev => ({ ...prev, imageUrl: data.imageUrl }));
+                setFormData(prev => ({ ...prev, [field]: data.imageUrl }));
             }
         } catch (error) {
             console.error('Upload failed:', error);
@@ -270,6 +276,7 @@ export default function AdminBranchesPage() {
             email: branch.email || '',
             city: branch.city,
             imageUrl: branch.imageUrl || '',
+            logoUrl: branch.logoUrl || '',
         });
         setDialogOpen(true);
     };
@@ -290,6 +297,7 @@ export default function AdminBranchesPage() {
             email: '',
             city: '',
             imageUrl: '',
+            logoUrl: '',
         });
         setEditingBranch(null);
     };
@@ -433,20 +441,23 @@ export default function AdminBranchesPage() {
                                             src={formData.imageUrl}
                                             alt="Preview"
                                             className="h-16 w-16 object-cover rounded border border-gray-200"
+                                            onError={(e) => {
+                                                (e.target as HTMLImageElement).src = '/assets/img/kumlogo.jpeg';
+                                            }}
                                         />
                                     )}
                                     <div className="relative">
                                         <input
                                             type="file"
-                                            ref={fileInputRef}
-                                            onChange={handleFileUpload}
+                                            ref={imageInputRef}
+                                            onChange={(e) => handleFileUpload(e, 'imageUrl')}
                                             className="hidden"
                                             accept="image/*"
                                         />
                                         <Button
                                             type="button"
                                             variant="outline"
-                                            onClick={() => fileInputRef.current?.click()}
+                                            onClick={() => imageInputRef.current?.click()}
                                             disabled={uploading}
                                             className="border-purple-200 text-purple-700 hover:bg-purple-50"
                                         >
@@ -456,6 +467,48 @@ export default function AdminBranchesPage() {
                                                 <Upload className="h-4 w-4 mr-2" />
                                             )}
                                             {uploading ? 'Yükleniyor...' : 'Görsel Seç'}
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Logo Upload Section */}
+                            <div className="grid gap-2">
+                                <Label className="text-gray-900 font-medium">Şube Logosu</Label>
+                                <div className="flex items-center gap-4">
+                                    {formData.logoUrl && (
+                                        <div className="h-16 w-16 bg-gray-100 rounded flex items-center justify-center border border-gray-200 p-2">
+                                            <img
+                                                src={formData.logoUrl}
+                                                alt="Logo Preview"
+                                                className="max-h-full max-w-full object-contain"
+                                                onError={(e) => {
+                                                    (e.target as HTMLImageElement).src = '/assets/img/kumlogo.jpeg';
+                                                }}
+                                            />
+                                        </div>
+                                    )}
+                                    <div className="relative">
+                                        <input
+                                            type="file"
+                                            ref={logoInputRef}
+                                            onChange={(e) => handleFileUpload(e, 'logoUrl')}
+                                            className="hidden"
+                                            accept="image/*"
+                                        />
+                                        <Button
+                                            type="button"
+                                            variant="outline"
+                                            onClick={() => logoInputRef.current?.click()}
+                                            disabled={uploading}
+                                            className="border-purple-200 text-purple-700 hover:bg-purple-50"
+                                        >
+                                            {uploading ? (
+                                                <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                                            ) : (
+                                                <Upload className="h-4 w-4 mr-2" />
+                                            )}
+                                            {uploading ? 'Yükleniyor...' : 'Logo Seç'}
                                         </Button>
                                     </div>
                                 </div>

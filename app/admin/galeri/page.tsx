@@ -150,6 +150,9 @@ export default function AdminGalleryPage() {
                                     src={img.imageUrl}
                                     alt={img.title}
                                     className="h-full w-full object-cover group-hover:opacity-75 transition-opacity"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).src = '/assets/img/kumlogo.jpeg';
+                                    }}
                                 />
                             </div>
                             <button
@@ -180,6 +183,9 @@ export default function AdminGalleryPage() {
                                             src={formData.imageUrl}
                                             alt="Preview"
                                             className="w-full h-full object-contain"
+                                            onError={(e) => {
+                                                (e.target as HTMLImageElement).src = '/assets/img/kumlogo.jpeg';
+                                            }}
                                         />
                                     </div>
                                 )}
