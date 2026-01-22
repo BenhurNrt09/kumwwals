@@ -71,10 +71,10 @@ export default async function Branches() {
                                                         <div className="d-flex align-items-center mb-2">
                                                             <i className="fas fa-phone-alt me-2" style={{ color: '#7B2CBF' }}></i>
                                                             <a
-                                                                href={`tel:${sube.phone.replace(/\s/g, "")}`}
+                                                                href="tel:+908503090215"
                                                                 className="text-muted small text-decoration-none"
                                                             >
-                                                                {sube.phone}
+                                                                +90 (850) 309 0215
                                                             </a>
                                                         </div>
                                                         {sube.email && (

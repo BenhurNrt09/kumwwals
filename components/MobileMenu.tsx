@@ -110,7 +110,7 @@ export default function MobileMenu() {
                     <div style={{ marginTop: '30px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
                         <div style={{ marginBottom: '15px' }}>
                             <i className="fa-solid fa-phone-volume" style={{ color: '#FFD700', marginRight: '10px' }}></i>
-                            <a href="tel:+905555555555" style={{ color: '#ffffff', textDecoration: 'none' }}>+90 555 555 55 55</a>
+                            <a href="tel:+908503090215" style={{ color: '#ffffff', textDecoration: 'none' }}>+90 (850) 309 0215</a>
                         </div>
                         <div style={{ display: 'flex', gap: '15px', marginTop: '20px' }}>
                             <a href="#" style={{ color: '#FFD700', fontSize: '20px' }}><i className="fab fa-facebook-f"></i></a>

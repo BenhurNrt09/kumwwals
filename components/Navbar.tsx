@@ -14,7 +14,7 @@ const Navbar = () => {
                                 <div className="d-flex align-items-center flex-wrap gap-4">
                                     <div className="vs-header__info">
                                         <i className="fa-solid fa-phone-volume"></i>
-                                        <span> Telefon : <a href="tel:+905555555555">+90 555 555 55 55</a></span>
+                                        <span> Telefon : <a href="tel:+908503090215">+90 (850) 309 0215</a></span>
                                     </div>
                                     <div className="vs-header__info">
                                         <i className="fa-solid fa-clock-rotate-left"></i>

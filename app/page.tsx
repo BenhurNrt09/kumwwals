@@ -115,7 +115,7 @@ export default function Home() {
                         Tutkumuz Çocukluk ve Biz Anaokulundayız
                       </p>
 
-                      <a href="/iletisim" className="vs-btn vs-hero__btn vs-hero__anim1 manimated" style={{ animationDelay: '1.35s', fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', padding: '15px 40px', backgroundColor: '#FFD700', color: '#333', fontWeight: '800', borderRadius: '50px', boxShadow: '0 10px 30px rgba(255, 215, 0, 0.4)', border: 'none' }}>
+                      <a href="/bilet-al" className="vs-btn vs-hero__btn vs-hero__anim1 manimated" style={{ animationDelay: '1.35s', fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', padding: '15px 40px', backgroundColor: '#FFD700', color: '#333', fontWeight: '800', borderRadius: '50px', boxShadow: '0 10px 30px rgba(255, 215, 0, 0.4)', border: 'none' }}>
                         <span className="vs-btn__border"></span>
                         BİLET SATIN AL
                       </a>

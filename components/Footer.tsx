@@ -33,7 +33,7 @@ const Footer = () => {
                                     <span className="icon-call__icon"><i className="fa-solid fa-phone-rotary"></i></span>
                                     <div className="icon-call__content">
                                         <span className="icon-call__title">Destek Hattı</span>
-                                        <a href="tel:+905555555555" className="icon-call__number">+90 555 555 55 55</a>
+                                        <a href="tel:+908503090215" className="icon-call__number">+90 (850) 309 0215</a>
                                     </div>
                                 </div>
                                 <div className="social-style social-style--version2 w-100 justify-content-center justify-content-md-start pt-25">
